@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
@@ -29,12 +30,15 @@ public:
     QGraphicsView *rightGraphicsView;
     QComboBox *methodComboBox;
     QLineEdit *windowSizeEdit;
-    QPushButton *pushButton;
+    QPushButton *loadGTButton;
     QPushButton *computeButton;
     QGraphicsView *disparityGraphicsView;
     QLineEdit *maxDisparityEdit;
     QPushButton *loadLeftButton;
     QPushButton *loadRightButton;
+    QLabel *timeLabel;
+    QLabel *sadLabel;
+    QLabel *ssdLabel;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -56,9 +60,9 @@ public:
         windowSizeEdit = new QLineEdit(centralwidget);
         windowSizeEdit->setObjectName("windowSizeEdit");
         windowSizeEdit->setGeometry(QRect(840, 70, 131, 26));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(610, 170, 93, 29));
+        loadGTButton = new QPushButton(centralwidget);
+        loadGTButton->setObjectName("loadGTButton");
+        loadGTButton->setGeometry(QRect(620, 170, 93, 29));
         computeButton = new QPushButton(centralwidget);
         computeButton->setObjectName("computeButton");
         computeButton->setGeometry(QRect(830, 170, 93, 29));
@@ -74,6 +78,15 @@ public:
         loadRightButton = new QPushButton(centralwidget);
         loadRightButton->setObjectName("loadRightButton");
         loadRightButton->setGeometry(QRect(380, 240, 93, 29));
+        timeLabel = new QLabel(centralwidget);
+        timeLabel->setObjectName("timeLabel");
+        timeLabel->setGeometry(QRect(690, 330, 251, 16));
+        sadLabel = new QLabel(centralwidget);
+        sadLabel->setObjectName("sadLabel");
+        sadLabel->setGeometry(QRect(690, 300, 281, 16));
+        ssdLabel = new QLabel(centralwidget);
+        ssdLabel->setObjectName("ssdLabel");
+        ssdLabel->setGeometry(QRect(690, 360, 291, 16));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -87,10 +100,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        loadGTButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         computeButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         loadLeftButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         loadRightButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        timeLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        sadLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        ssdLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };
